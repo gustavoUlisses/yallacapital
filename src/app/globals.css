@@ -1,0 +1,28 @@
+@import "tailwindcss";
+
+:root {
+  --brand:   #12133F;
+  --blue-lt: #F0F4FB;
+  --white:   #FFFFFF;
+  --ink:     #111827;
+  --gold:    #C4A35A;
+  --muted:   #6B7280;
+  --border:  #E2E8F0;
+}
+
+body {
+  background: #FFFFFF;
+  color: #111827;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+.gold-rule {
+  display: block;
+  width: 3rem;
+  height: 2px;
+  background: #C4A35A;
+  margin-bottom: 1.5rem;
+}
