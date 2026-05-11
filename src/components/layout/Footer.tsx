@@ -39,7 +39,7 @@ export default function Footer({ locale, dict }: FooterProps) {
             <h3 className="text-white/40 text-xs font-medium mb-4 uppercase tracking-widest">
               {t.navLabel}
             </h3>
-            <ul className="space-y-2 text-xs">
+            <ul className="grid grid-cols-2 gap-x-6 gap-y-2 text-xs">
               {navLinks.map(({ label, href, external }) => (
                 <li key={href}>
                   {external ? (
