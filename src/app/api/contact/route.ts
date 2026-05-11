@@ -1,6 +1,6 @@
 import { Resend } from "resend";
 
-const TO_EMAIL = "gus.42code@gmail.com";
+const TO_EMAIL = "gusdevsp@gmail.com";
 
 export async function POST(request: Request) {
   const resend = new Resend(process.env.RESEND_API_KEY);
