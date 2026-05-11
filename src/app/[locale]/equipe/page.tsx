@@ -89,9 +89,11 @@ export default async function EquipePage({
                   >
                     {member.name}
                   </h2>
-                  <p className="text-[#6B6B6B] text-sm leading-relaxed mb-6">
-                    {member.bio}
-                  </p>
+                  <div className="text-[#6B6B6B] text-sm leading-relaxed mb-6 space-y-3">
+                    {member.bio.split("\n\n").map((paragraph, i) => (
+                      <p key={i}>{paragraph}</p>
+                    ))}
+                  </div>
 
                   <div className="flex flex-wrap gap-2 mb-6">
                     {member.previous.map((inst) => (

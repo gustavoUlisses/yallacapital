@@ -92,12 +92,12 @@ export default async function AdvisoryPage({
         </div>
       </section>
 
-      <section style={{ background: "#12133F" }} className="py-20">
+      <section style={{ background: "#F0F4FB" }} className="py-20">
         <div className="max-w-7xl mx-auto px-6 lg:px-12 flex flex-col sm:flex-row sm:items-center justify-between gap-8">
           <div>
             <div className="w-8 h-[2px] bg-[#C4A35A] mb-6" />
             <h3
-              className="text-white"
+              className="text-[#12133F]"
               style={{
                 fontFamily: "var(--font-display), serif",
                 fontSize: "clamp(1.5rem, 3vw, 2.25rem)",
@@ -108,7 +108,7 @@ export default async function AdvisoryPage({
           </div>
           <Link
             href={`/${locale}/contato`}
-            className="inline-flex items-center gap-2 bg-white text-[#12133F] px-7 py-3.5 text-sm font-semibold hover:bg-[#F0F4FB] transition-colors flex-shrink-0"
+            className="inline-flex items-center gap-2 bg-[#12133F] text-white px-7 py-3.5 text-sm font-semibold hover:bg-[#1A1A2E] transition-colors flex-shrink-0"
           >
             {t.ctaButton}
             <ArrowRight size={14} />
