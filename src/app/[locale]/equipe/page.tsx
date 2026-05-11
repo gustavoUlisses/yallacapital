@@ -64,6 +64,7 @@ export default async function EquipePage({
                       alt={member.name}
                       fill
                       className="object-cover object-top"
+                      sizes="(max-width: 1024px) 100vw, 42vw"
                     />
                   </div>
                 </div>

@@ -278,6 +278,7 @@ const en: Dictionary = {
       "All information shared with us is treated with absolute confidentiality. Our Privacy Policy details how we collect, use, and protect your data.",
     confidentialityTitle: "Confidentiality note:",
     form: {
+      formTitle: "Send a message",
       nameLabel: "Name *",
       namePlaceholder: "Your name",
       companyLabel: "Company",

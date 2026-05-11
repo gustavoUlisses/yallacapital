@@ -59,7 +59,7 @@ export default function TransactionsPreview({ dict, locale }: TransactionsPrevie
               </div>
 
               {/* Logo pair */}
-              <div className="sm:col-span-5 flex items-center gap-3">
+              <div className="sm:col-span-5 flex items-center gap-2 sm:gap-3">
                 <div className="bg-white border border-[#E2E8F0] rounded-sm px-3 py-2 flex items-center justify-center w-20 h-9 sm:w-24 sm:h-10 flex-shrink-0">
                   <div className="relative w-full h-full">
                     <Image

@@ -166,6 +166,7 @@ export interface Dictionary {
     confidentialityNote: string;
     confidentialityTitle: string;
     form: {
+      formTitle: string;
       nameLabel: string;
       namePlaceholder: string;
       companyLabel: string;

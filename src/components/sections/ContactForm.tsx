@@ -7,9 +7,10 @@ import type { Dictionary } from "@/i18n/types";
 
 interface ContactFormProps {
   dict: Dictionary;
+  locale: string;
 }
 
-export default function ContactForm({ dict }: ContactFormProps) {
+export default function ContactForm({ dict, locale }: ContactFormProps) {
   const t = dict.contact.form;
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
@@ -144,7 +145,7 @@ export default function ContactForm({ dict }: ContactFormProps) {
         />
         <label htmlFor="consent" className="text-xs text-[#6B7280] leading-relaxed">
           {t.consentText}{" "}
-          <Link href="/privacidade" className="underline hover:text-[#12133F]">
+          <Link href={`/${locale}/privacidade`} className="underline hover:text-[#12133F]">
             {t.privacyLink}
           </Link>{" "}
           {t.consentAnd}

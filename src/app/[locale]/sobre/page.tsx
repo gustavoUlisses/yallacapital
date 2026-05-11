@@ -78,6 +78,7 @@ export default async function SobrePage({
                   alt="Escritório Yalla Capital"
                   fill
                   className="object-cover"
+                  sizes="(max-width: 768px) 100vw, 50vw"
                 />
               </div>
             </div>

@@ -54,10 +54,10 @@ export default async function ContatoPage({
                 className="text-[#1A1A1A] mb-8"
                 style={{ fontFamily: "var(--font-display), serif", fontSize: "clamp(1.25rem, 2vw, 1.6rem)" }}
               >
-                {"Envie uma mensagem"}
+                {t.form.formTitle}
               </h2>
               <div className="flex-1">
-                <ContactForm dict={dict} />
+                <ContactForm dict={dict} locale={locale} />
               </div>
             </div>
 

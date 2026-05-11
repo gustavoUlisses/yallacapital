@@ -275,6 +275,7 @@ const zh: Dictionary = {
       "所有与我们共享的信息均受到绝对保密处理。我们的隐私政策详细说明了我们如何收集、使用和保护您的数据。",
     confidentialityTitle: "保密说明：",
     form: {
+      formTitle: "发送消息",
       nameLabel: "姓名 *",
       namePlaceholder: "您的姓名",
       companyLabel: "公司",

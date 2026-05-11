@@ -137,7 +137,7 @@ export default function Hero({ dict, locale }: HeroProps) {
         ref={videoBRef}
         muted
         playsInline
-        preload="auto"
+        preload="none"
         className="absolute inset-0 w-full h-full object-cover"
         style={{ opacity: 0 }}
         src="/assets/hero.mp4"

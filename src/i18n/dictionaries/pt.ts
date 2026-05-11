@@ -278,6 +278,7 @@ const pt: Dictionary = {
       "Todas as informações compartilhadas conosco são tratadas com absoluta confidencialidade. Nossa Política de Privacidade detalha como coletamos, usamos e protegemos seus dados.",
     confidentialityTitle: "Nota de confidencialidade:",
     form: {
+      formTitle: "Envie uma mensagem",
       nameLabel: "Nome *",
       namePlaceholder: "Seu nome",
       companyLabel: "Empresa",

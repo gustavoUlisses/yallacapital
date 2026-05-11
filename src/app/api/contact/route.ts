@@ -1,9 +1,8 @@
 import { Resend } from "resend";
 
-const TO_EMAIL = "gusdevsp@gmail.com";
-
 export async function POST(request: Request) {
   const resend = new Resend(process.env.RESEND_API_KEY);
+  const TO_EMAIL = process.env.CONTACT_TO_EMAIL ?? "contato@yallacapital.com.br";
   let body: Record<string, string>;
 
   try {
@@ -17,7 +16,7 @@ export async function POST(request: Request) {
   if (!name || typeof name !== "string" || name.trim() === "") {
     return Response.json({ error: "Name is required" }, { status: 422 });
   }
-  if (!email || typeof email !== "string" || !email.includes("@")) {
+  if (!email || typeof email !== "string" || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
     return Response.json({ error: "Valid email is required" }, { status: 422 });
   }
   if (!message || typeof message !== "string" || message.trim() === "") {
