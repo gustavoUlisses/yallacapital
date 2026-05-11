@@ -4,7 +4,7 @@ const zh: Dictionary = {
   nav: {
     about: "Yalla",
     team: "团队",
-    solutions: "服务",
+    solutions: "Advisory",
     transactions: "交易",
     careers: "招聘",
     contact: "联系我们",
@@ -19,8 +19,8 @@ const zh: Dictionary = {
     ctaSecondary: "查看交易",
     stats: [
       { value: "+$120亿", label: "已顾问交易总额" },
-      { value: "100%", label: "独家顾问委托" },
-      { value: "3", label: "具有全球经验的合伙人" },
+      { value: "+20年", label: "银行业经验" },
+      { value: "100%", label: "卖方独家顾问" },
     ],
   },
 
@@ -70,6 +70,7 @@ const zh: Dictionary = {
     p2: "我们的独立性使我们能够完全代表客户利益行事。无利益冲突，无隐性议程。",
     cta: "了解我们的故事",
     foundersLabel: "创始人此前任职机构",
+    statLabel: "顾问交易总额",
   },
 
   transactionsPreview: {

@@ -74,7 +74,7 @@ export default async function SobrePage({
             <div>
               <div className="relative w-full aspect-[4/3] overflow-hidden">
                 <Image
-                  src="/assets/deal-image1.jpg"
+                  src="/assets/yalla-sobre.webp"
                   alt="Escritório Yalla Capital"
                   fill
                   className="object-cover"

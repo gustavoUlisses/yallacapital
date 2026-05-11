@@ -1,10 +1,11 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Menu, X } from "lucide-react";
+import { Menu, X, ChevronDown } from "lucide-react";
 import type { Locale } from "@/i18n/locales";
+import { locales, localeNames } from "@/i18n/locales";
 import type { Dictionary } from "@/i18n/types";
 
 interface HeaderProps {
@@ -15,7 +16,25 @@ interface HeaderProps {
 export default function Header({ locale, dict }: HeaderProps) {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [langOpen, setLangOpen] = useState(false);
+  const langRef = useRef<HTMLDivElement>(null);
   const pathname = usePathname();
+
+  const switchLocale = (next: Locale) => {
+    const segments = pathname.split("/");
+    segments[1] = next;
+    return segments.join("/");
+  };
+
+  useEffect(() => {
+    const handler = (e: MouseEvent) => {
+      if (langRef.current && !langRef.current.contains(e.target as Node)) {
+        setLangOpen(false);
+      }
+    };
+    document.addEventListener("mousedown", handler);
+    return () => document.removeEventListener("mousedown", handler);
+  }, []);
 
   const nav = [
     { label: dict.nav.about, href: `/${locale}/sobre` },
@@ -24,6 +43,9 @@ export default function Header({ locale, dict }: HeaderProps) {
     { label: dict.nav.transactions, href: `/${locale}/transacoes` },
     { label: dict.nav.contact, href: `/${locale}/contato` },
   ];
+
+  const isHome = pathname === `/${locale}` || pathname === `/${locale}/`;
+  const darkBg = isHome && !scrolled;
 
   useEffect(() => {
     const handler = () => setScrolled(window.scrollY > 20);
@@ -45,8 +67,12 @@ export default function Header({ locale, dict }: HeaderProps) {
         <div className="flex items-center justify-between h-20">
           <Link href={`/${locale}`} className="flex-shrink-0">
             <span
-              className="tracking-[0.08em] text-[#12133F] uppercase"
-              style={{ fontFamily: "var(--font-logo), serif", fontSize: "29px" }}
+              className="tracking-[0.08em] uppercase transition-colors duration-300"
+              style={{
+                fontFamily: "var(--font-logo), serif",
+                fontSize: "29px",
+                color: darkBg ? "white" : "#12133F",
+              }}
             >
               Yalla Capital
             </span>
@@ -59,8 +85,12 @@ export default function Header({ locale, dict }: HeaderProps) {
                 <Link
                   key={item.href}
                   href={item.href}
-                  className="relative text-sm font-medium pb-1 group"
-                  style={{ color: active ? "#12133F" : "#6B6B6B" }}
+                  className="relative text-sm font-medium pb-1 group transition-colors duration-300"
+                  style={{
+                    color: darkBg
+                      ? active ? "white" : "rgba(255,255,255,0.7)"
+                      : active ? "#12133F" : "#6B6B6B",
+                  }}
                 >
                   {item.label}
                   <span
@@ -72,10 +102,35 @@ export default function Header({ locale, dict }: HeaderProps) {
               );
             })}
 
+            <div ref={langRef} className="relative">
+              <button
+                onClick={() => setLangOpen(!langOpen)}
+                className="flex items-center gap-1 text-sm font-medium transition-colors duration-300"
+                style={{ color: darkBg ? "rgba(255,255,255,0.7)" : "#6B6B6B" }}
+              >
+                {localeNames[locale]}
+                <ChevronDown size={13} className={`transition-transform duration-200 ${langOpen ? "rotate-180" : ""}`} />
+              </button>
+              {langOpen && (
+                <div className="absolute right-0 top-full mt-2 bg-white border border-[#E2E8F0] shadow-md py-1 min-w-[80px]">
+                  {locales.filter((l) => l !== locale).map((l) => (
+                    <Link
+                      key={l}
+                      href={switchLocale(l)}
+                      onClick={() => setLangOpen(false)}
+                      className="block px-4 py-2 text-sm text-[#6B6B6B] hover:text-[#12133F] hover:bg-[#F0F4FB] transition-colors"
+                    >
+                      {localeNames[l]}
+                    </Link>
+                  ))}
+                </div>
+              )}
+            </div>
           </nav>
 
           <button
-            className="md:hidden p-2 text-[#1A1A1A]"
+            className="md:hidden p-2 transition-colors duration-300"
+            style={{ color: darkBg ? "white" : "#1A1A1A" }}
             onClick={() => setOpen(!open)}
             aria-label="Menu"
           >
@@ -97,7 +152,18 @@ export default function Header({ locale, dict }: HeaderProps) {
                 {item.label}
               </Link>
             ))}
-
+            <div className="flex items-center gap-3 pt-2">
+              {locales.map((l) => (
+                <Link
+                  key={l}
+                  href={switchLocale(l)}
+                  className="text-xs font-medium tracking-wide transition-colors"
+                  style={{ color: l === locale ? "#12133F" : "#9CA3AF" }}
+                >
+                  {localeNames[l]}
+                </Link>
+              ))}
+            </div>
           </nav>
         </div>
       )}

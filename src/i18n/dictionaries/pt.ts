@@ -4,7 +4,7 @@ const pt: Dictionary = {
   nav: {
     about: "Yalla",
     team: "Equipe",
-    solutions: "Soluções",
+    solutions: "Advisory",
     transactions: "Transações",
     careers: "Carreiras",
     contact: "Contato",
@@ -19,8 +19,8 @@ const pt: Dictionary = {
     ctaSecondary: "Ver transações",
     stats: [
       { value: "+$12B", label: "em transações assessoradas" },
-      { value: "100%", label: "mandatos de assessoria exclusiva" },
-      { value: "3", label: "sócios com experiência global" },
+      { value: "+20 anos", label: "de experiência em banking" },
+      { value: "100%", label: "assessoria exclusiva ao vendedor" },
     ],
   },
 
@@ -70,6 +70,7 @@ const pt: Dictionary = {
     p2: "Nossa independência nos permite atuar exclusivamente no interesse dos nossos clientes. Sem conflitos de interesse. Sem agenda própria.",
     cta: "Conheça nossa história",
     foundersLabel: "Experiência anterior dos fundadores",
+    statLabel: "em transações assessoradas",
   },
 
   transactionsPreview: {

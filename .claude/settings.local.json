@@ -3,7 +3,8 @@
     "allow": [
       "PowerShell(New-Item -ItemType Directory -Force -Path \"C:\\\\Users\\\\gusde\\\\Documents\\\\yallacapital\\\\public\\\\assets\")",
       "WebFetch(domain:www.yallacapital.com)",
-      "WebFetch(domain:static.wixstatic.com)"
+      "WebFetch(domain:static.wixstatic.com)",
+      "WebFetch(domain:www.yallacapital.com.br)"
     ]
   }
 }

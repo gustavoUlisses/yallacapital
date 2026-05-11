@@ -82,6 +82,7 @@ export interface Dictionary {
     p2: string;
     cta: string;
     foundersLabel: string;
+    statLabel: string;
   };
 
   transactionsPreview: {

@@ -4,7 +4,7 @@ const en: Dictionary = {
   nav: {
     about: "Yalla",
     team: "Team",
-    solutions: "Solutions",
+    solutions: "Advisory",
     transactions: "Transactions",
     careers: "Careers",
     contact: "Contact",
@@ -19,8 +19,8 @@ const en: Dictionary = {
     ctaSecondary: "View transactions",
     stats: [
       { value: "+$12B", label: "in advised transactions" },
-      { value: "100%", label: "exclusive advisory mandates" },
-      { value: "3", label: "partners with global experience" },
+      { value: "+20 years", label: "of banking experience" },
+      { value: "100%", label: "sell-side exclusive advisory" },
     ],
   },
 
@@ -70,6 +70,7 @@ const en: Dictionary = {
     p2: "Our independence allows us to act exclusively in our clients' best interests. No conflicts of interest. No hidden agenda.",
     cta: "Learn our story",
     foundersLabel: "Founders' previous experience",
+    statLabel: "in advised transactions",
   },
 
   transactionsPreview: {
