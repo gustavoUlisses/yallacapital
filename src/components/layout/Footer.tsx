@@ -24,8 +24,8 @@ export default function Footer({ locale, dict }: FooterProps) {
   return (
     <footer style={{ background: "#12133F" }} className="text-white/60">
       <div className="max-w-7xl mx-auto px-6 lg:px-12 py-16">
-        <div className="grid grid-cols-1 md:grid-cols-[1fr_auto_auto] gap-12 mb-12">
-          <div>
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-12 mb-12">
+          <div className="col-span-2 md:col-span-1">
             <span
               className="text-white tracking-[0.08em] uppercase block mb-4"
               style={{ fontFamily: "var(--font-logo), serif", fontSize: "29px" }}
