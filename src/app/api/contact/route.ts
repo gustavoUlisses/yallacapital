@@ -1,10 +1,9 @@
 import { Resend } from "resend";
 
-const resend = new Resend(process.env.RESEND_API_KEY);
-
 const TO_EMAIL = "gus.42code@gmail.com";
 
 export async function POST(request: Request) {
+  const resend = new Resend(process.env.RESEND_API_KEY);
   let body: Record<string, string>;
 
   try {
