@@ -128,6 +128,7 @@ export default function Hero({ dict, locale }: HeroProps) {
         autoPlay
         muted
         playsInline
+        preload="auto"
         className="absolute inset-0 w-full h-full object-cover"
         style={{ opacity: 1 }}
         src="/assets/hero.mp4"
@@ -136,6 +137,7 @@ export default function Hero({ dict, locale }: HeroProps) {
         ref={videoBRef}
         muted
         playsInline
+        preload="auto"
         className="absolute inset-0 w-full h-full object-cover"
         style={{ opacity: 0 }}
         src="/assets/hero.mp4"

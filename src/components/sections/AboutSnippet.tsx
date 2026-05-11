@@ -50,28 +50,29 @@ export default function AboutSnippet({ dict, locale }: AboutSnippetProps) {
 
           <div className="flex flex-col">
             <p className="text-xs text-[#6B7280] tracking-[0.3em] uppercase mb-5">{t.foundersLabel}</p>
-            <div className="grid grid-cols-3 gap-px flex-1" style={{ background: "#D1D9E6" }}>
-              {institutions.map((item, i) => (
+            <div className="grid grid-cols-2 sm:grid-cols-3 gap-px flex-1" style={{ background: "#D1D9E6" }}>
+              {institutions.map((item) => (
                 <div
                   key={item.label}
-                  className={`bg-white flex items-center justify-center p-8 min-h-[120px]${i === 3 ? " col-start-1" : i === 4 ? " col-start-2" : ""}`}
+                  className="bg-white flex items-center justify-center p-4 sm:p-6 min-h-[90px] sm:min-h-[110px]"
                 >
-                  <div className="relative w-full h-8">
+                  <div className="relative w-full h-7 sm:h-8">
                     <Image
                       src={item.logo}
                       alt={item.label}
                       fill
                       className="object-contain opacity-50 hover:opacity-90 transition-opacity duration-300"
+                      sizes="(max-width: 640px) 40vw, 20vw"
                     />
                   </div>
                 </div>
               ))}
-              <div className="bg-white flex flex-col items-center justify-center p-8 min-h-[120px] col-start-3">
+              <div className="bg-white flex flex-col items-center justify-center p-4 sm:p-6 min-h-[90px] sm:min-h-[110px]">
                 <p
                   className="text-[#C4A35A] leading-none mb-1"
                   style={{
                     fontFamily: "var(--font-mono), monospace",
-                    fontSize: "clamp(1.5rem, 2.5vw, 2rem)",
+                    fontSize: "clamp(1.2rem, 2.5vw, 2rem)",
                     fontWeight: 500,
                   }}
                 >
