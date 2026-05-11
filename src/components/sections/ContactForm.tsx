@@ -13,18 +13,44 @@ export default function ContactForm({ dict }: ContactFormProps) {
   const t = dict.contact.form;
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+
+  const [name, setName] = useState("");
+  const [company, setCompany] = useState("");
+  const [email, setEmail] = useState("");
+  const [interest, setInterest] = useState("");
+  const [message, setMessage] = useState("");
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setLoading(true);
-    await new Promise((r) => setTimeout(r, 800));
-    setLoading(false);
-    setSubmitted(true);
+    setError(null);
+
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ name, company, email, interest, message }),
+      });
+
+      const data = await res.json();
+
+      if (!res.ok || !data.ok) {
+        setError(data.error ?? "Something went wrong. Please try again.");
+        return;
+      }
+
+      setSubmitted(true);
+    } catch {
+      setError("Network error. Please check your connection and try again.");
+    } finally {
+      setLoading(false);
+    }
   };
 
   if (submitted) {
     return (
-      <div className="border border-[#E5E7EB] rounded-lg p-12 text-center">
+      <div className="border border-[#D4CFC8] p-12 text-center">
         <div className="w-12 h-12 bg-[#ECFDF5] rounded-full flex items-center justify-center mx-auto mb-4">
           <Send size={20} className="text-[#065F46]" />
         </div>
@@ -46,8 +72,11 @@ export default function ContactForm({ dict }: ContactFormProps) {
           <label className="block text-sm font-medium text-[#1A1A2E] mb-2">{t.nameLabel}</label>
           <input
             type="text"
+            name="name"
             required
-            className="w-full border border-[#E5E7EB] rounded px-4 py-3 text-sm text-[#1A1A2E] placeholder:text-[#6B7280] focus:outline-none focus:border-[#12133F] transition-colors"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+            className="w-full border border-[#D4CFC8] px-4 py-3 text-sm text-[#1A1A1A] placeholder:text-[#9CA3AF] focus:outline-none focus:border-[#12133F] transition-colors bg-white"
             placeholder={t.namePlaceholder}
           />
         </div>
@@ -55,7 +84,10 @@ export default function ContactForm({ dict }: ContactFormProps) {
           <label className="block text-sm font-medium text-[#1A1A2E] mb-2">{t.companyLabel}</label>
           <input
             type="text"
-            className="w-full border border-[#E5E7EB] rounded px-4 py-3 text-sm text-[#1A1A2E] placeholder:text-[#6B7280] focus:outline-none focus:border-[#12133F] transition-colors"
+            name="company"
+            value={company}
+            onChange={(e) => setCompany(e.target.value)}
+            className="w-full border border-[#D4CFC8] px-4 py-3 text-sm text-[#1A1A1A] placeholder:text-[#9CA3AF] focus:outline-none focus:border-[#12133F] transition-colors bg-white"
             placeholder={t.companyPlaceholder}
           />
         </div>
@@ -65,15 +97,24 @@ export default function ContactForm({ dict }: ContactFormProps) {
         <label className="block text-sm font-medium text-[#1A1A2E] mb-2">{t.emailLabel}</label>
         <input
           type="email"
+          name="email"
           required
-          className="w-full border border-[#E5E7EB] rounded px-4 py-3 text-sm text-[#1A1A2E] placeholder:text-[#6B7280] focus:outline-none focus:border-[#12133F] transition-colors"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          className="w-full border border-[#D4CFC8] px-4 py-3 text-sm text-[#1A1A1A] placeholder:text-[#9CA3AF] focus:outline-none focus:border-[#12133F] transition-colors bg-white"
           placeholder={t.emailPlaceholder}
         />
       </div>
 
       <div>
         <label className="block text-sm font-medium text-[#1A1A2E] mb-2">{t.interestLabel}</label>
-        <select className="w-full border border-[#E5E7EB] rounded px-4 py-3 text-sm text-[#1A1A2E] focus:outline-none focus:border-[#12133F] transition-colors bg-white">
+        <select
+          name="interest"
+          required
+          value={interest}
+          onChange={(e) => setInterest(e.target.value)}
+          className="w-full border border-[#D4CFC8] px-4 py-3 text-sm text-[#1A1A1A] focus:outline-none focus:border-[#12133F] transition-colors bg-white"
+        >
           <option value="">{t.interestDefault}</option>
           {t.interestOptions.map((opt) => (
             <option key={opt.value} value={opt.value}>{opt.label}</option>
@@ -84,9 +125,12 @@ export default function ContactForm({ dict }: ContactFormProps) {
       <div>
         <label className="block text-sm font-medium text-[#1A1A2E] mb-2">{t.messageLabel}</label>
         <textarea
+          name="message"
           required
           rows={5}
-          className="w-full border border-[#E5E7EB] rounded px-4 py-3 text-sm text-[#1A1A2E] placeholder:text-[#6B7280] focus:outline-none focus:border-[#12133F] transition-colors resize-none"
+          value={message}
+          onChange={(e) => setMessage(e.target.value)}
+          className="w-full border border-[#D4CFC8] px-4 py-3 text-sm text-[#1A1A1A] placeholder:text-[#9CA3AF] focus:outline-none focus:border-[#12133F] transition-colors resize-none bg-white"
           placeholder={t.messagePlaceholder}
         />
       </div>
@@ -107,10 +151,14 @@ export default function ContactForm({ dict }: ContactFormProps) {
         </label>
       </div>
 
+      {error && (
+        <p className="text-sm text-red-600" role="alert">{error}</p>
+      )}
+
       <button
         type="submit"
         disabled={loading}
-        className="w-full bg-[#12133F] text-white py-4 text-sm font-medium rounded hover:bg-[#2B5499] transition-colors disabled:opacity-60 flex items-center justify-center gap-2"
+        className="w-full bg-[#12133F] text-white py-4 text-sm font-medium hover:bg-[#1A1A2E] transition-colors disabled:opacity-60 flex items-center justify-center gap-2"
       >
         {loading ? t.submitting : t.submitButton}
         {!loading && <Send size={14} />}

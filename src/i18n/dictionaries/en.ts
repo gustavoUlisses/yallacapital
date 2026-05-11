@@ -2,7 +2,7 @@ import type { Dictionary } from "../types";
 
 const en: Dictionary = {
   nav: {
-    about: "About",
+    about: "Yalla",
     team: "Team",
     solutions: "Solutions",
     transactions: "Transactions",

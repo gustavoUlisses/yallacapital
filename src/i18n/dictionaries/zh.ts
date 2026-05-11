@@ -2,7 +2,7 @@ import type { Dictionary } from "../types";
 
 const zh: Dictionary = {
   nav: {
-    about: "关于我们",
+    about: "Yalla",
     team: "团队",
     solutions: "服务",
     transactions: "交易",

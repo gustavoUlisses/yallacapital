@@ -29,7 +29,7 @@ const jetbrainsMono = JetBrains_Mono({
 const cormorant = Cormorant_Garamond({
   variable: "--font-logo",
   subsets: ["latin"],
-  weight: ["400"],
+  weight: ["600"],
 });
 
 export async function generateStaticParams() {
