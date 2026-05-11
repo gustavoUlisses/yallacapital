@@ -12,8 +12,8 @@ const pt: Dictionary = {
 
   hero: {
     kicker: "Boutique Independente de M&A — São Paulo",
-    headline: "Cada transação começa muito antes",
-    headlineEmphasis: "da transação.",
+    headline: "Onde estratégia",
+    headlineEmphasis: "encontra liquidez.",
     sub: "Assessoria independente em M&A, captações e soluções de capital. Poucos mandatos simultâneos — máxima dedicação a cada cliente.",
     ctaPrimary: "Fale conosco",
     ctaSecondary: "Ver transações",

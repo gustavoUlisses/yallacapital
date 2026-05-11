@@ -12,8 +12,8 @@ const en: Dictionary = {
 
   hero: {
     kicker: "Independent M&A Boutique — São Paulo",
-    headline: "Every transaction begins long before",
-    headlineEmphasis: "the transaction.",
+    headline: "Where strategy",
+    headlineEmphasis: "meets liquidity.",
     sub: "Independent advisory in M&A, fundraising, and capital solutions. Few simultaneous mandates — maximum dedication to each client.",
     ctaPrimary: "Get in touch",
     ctaSecondary: "View transactions",

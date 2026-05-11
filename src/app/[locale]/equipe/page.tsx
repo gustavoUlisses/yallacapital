@@ -63,6 +63,7 @@ export default async function EquipePage({
                       src={member.photo}
                       alt={member.name}
                       fill
+                      priority
                       className="object-cover object-top"
                       sizes="(max-width: 1024px) 100vw, 42vw"
                     />

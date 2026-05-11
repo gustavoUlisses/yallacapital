@@ -12,8 +12,8 @@ const zh: Dictionary = {
 
   hero: {
     kicker: "独立并购精品机构 — 圣保罗",
-    headline: "每一笔交易，都在交易本身之前",
-    headlineEmphasis: "早已开始。",
+    headline: "战略与流动性",
+    headlineEmphasis: "在此交汇。",
     sub: "提供并购、融资及资本解决方案的独立财务顾问服务。同期委托极少——对每位客户全力以赴。",
     ctaPrimary: "联系我们",
     ctaSecondary: "查看交易",
