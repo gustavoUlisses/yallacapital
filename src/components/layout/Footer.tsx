@@ -27,10 +27,10 @@ export default function Footer({ locale, dict }: FooterProps) {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
           <div>
             <span
-              className="text-white text-sm tracking-[0.18em] font-bold uppercase block mb-4"
-              style={{ fontFamily: "var(--font-display), serif" }}
+              className="text-white text-sm tracking-[0.18em] font-normal uppercase block mb-4"
+              style={{ fontFamily: "var(--font-logo), serif" }}
             >
-              Yalla <span className="font-normal italic">Capital</span>
+              Yalla Capital
             </span>
             <p className="text-xs leading-relaxed">{t.description}</p>
           </div>

@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { DM_Sans, Ormorant_Garamond, JetBrains_Mono } from "next/font/google";
+import { DM_Sans, Playfair_Display, JetBrains_Mono, Cormorant_Garamond } from "next/font/google";
 import "../globals.css";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
@@ -13,16 +13,23 @@ const dmSans = DM_Sans({
   weight: ["300", "400", "500", "600"],
 });
 
-const ormorant = Ormorant_Garamond({
+const playfair = Playfair_Display({
   variable: "--font-display",
   subsets: ["latin"],
-  weight: ["400"],
+  weight: ["400", "500", "700"],
+  style: ["normal", "italic"],
 });
 
 const jetbrainsMono = JetBrains_Mono({
   variable: "--font-mono",
   subsets: ["latin"],
   weight: ["400", "500"],
+});
+
+const cormorant = Cormorant_Garamond({
+  variable: "--font-logo",
+  subsets: ["latin"],
+  weight: ["400"],
 });
 
 export async function generateStaticParams() {
@@ -66,7 +73,7 @@ export default async function LocaleLayout({
   return (
     <html
       lang={langMap[locale]}
-      className={`${dmSans.variable} ${ormorant.variable} ${jetbrainsMono.variable}`}
+      className={`${dmSans.variable} ${playfair.variable} ${jetbrainsMono.variable} ${cormorant.variable}`}
     >
       <body
         className="min-h-screen flex flex-col antialiased bg-[#F5F2ED] text-[#1A1A1A]"

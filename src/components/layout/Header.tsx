@@ -45,10 +45,10 @@ export default function Header({ locale, dict }: HeaderProps) {
         <div className="flex items-center justify-between h-20">
           <Link href={`/${locale}`} className="flex-shrink-0">
             <span
-              className="text-xl tracking-[0.18em] font-bold text-[#12133F] uppercase"
-              style={{ fontFamily: "var(--font-display), serif" }}
+              className="text-xl tracking-[0.18em] font-normal text-[#12133F] uppercase"
+              style={{ fontFamily: "var(--font-logo), serif" }}
             >
-              Yalla <span className="font-normal italic">Capital</span>
+              Yalla Capital
             </span>
           </Link>
 
