@@ -41,6 +41,10 @@ export interface StatKV {
 }
 
 export interface Dictionary {
+  home: {
+    meta: { title: string; description: string };
+  };
+
   nav: {
     about: string;
     team: string;

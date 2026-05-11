@@ -1,6 +1,13 @@
 import type { Dictionary } from "../types";
 
 const zh: Dictionary = {
+  home: {
+    meta: {
+      title: "Yalla Capital | 并购财务顾问",
+      description: "圣保罗独立并购精品机构。累计顾问交易超120亿美元。由高盛、美林及Itaú BBA资深专业人士组成的卖方独家顾问团队。",
+    },
+  },
+
   nav: {
     about: "Yalla",
     team: "团队",

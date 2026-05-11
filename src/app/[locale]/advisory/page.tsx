@@ -25,8 +25,32 @@ export default async function AdvisoryPage({
   const dict = await getDictionary(locale);
   const t = dict.advisory;
 
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": `https://www.yallacapital.com.br/${locale}` },
+          { "@type": "ListItem", "position": 2, "name": t.pageLabel, "item": `https://www.yallacapital.com.br/${locale}/advisory` },
+        ],
+      },
+      ...t.services.map((service) => ({
+        "@type": "Service",
+        "serviceType": service.title,
+        "name": service.headline,
+        "description": service.description,
+        "provider": { "@type": "Organization", "name": "Yalla Capital" },
+      })),
+    ],
+  };
+
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       <section className="bg-white pt-40 pb-16">
         <div className="max-w-7xl mx-auto px-6 lg:px-12">
           <span className="gold-rule" />

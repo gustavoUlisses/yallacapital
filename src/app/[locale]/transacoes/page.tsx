@@ -25,8 +25,21 @@ export default async function TransacoesPage({
   const dict = await getDictionary(locale);
   const t = dict.transactions;
 
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": `https://www.yallacapital.com.br/${locale}` },
+      { "@type": "ListItem", "position": 2, "name": t.pageLabel, "item": `https://www.yallacapital.com.br/${locale}/transacoes` },
+    ],
+  };
+
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       {/* Hero */}
       <section className="bg-[#F0F4FB] pt-40 pb-16">
         <div className="max-w-7xl mx-auto px-6 lg:px-12">

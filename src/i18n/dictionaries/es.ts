@@ -1,6 +1,13 @@
 import type { Dictionary } from "../types";
 
 const es: Dictionary = {
+  home: {
+    meta: {
+      title: "Yalla Capital | Asesoría Financiera en M&A",
+      description: "Boutique independiente de M&A en São Paulo. +USD 12B en transacciones asesoradas. Asesoría exclusiva al vendedor con profesionales de Goldman Sachs, Merrill Lynch e Itaú BBA.",
+    },
+  },
+
   nav: {
     about: "Yalla",
     team: "Equipo",

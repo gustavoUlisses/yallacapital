@@ -26,8 +26,33 @@ export default async function EquipePage({
   const dict = await getDictionary(locale);
   const t = dict.team;
 
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": `https://www.yallacapital.com.br/${locale}` },
+          { "@type": "ListItem", "position": 2, "name": t.pageLabel, "item": `https://www.yallacapital.com.br/${locale}/equipe` },
+        ],
+      },
+      ...partners.map((member) => ({
+        "@type": "Person",
+        "name": member.name,
+        "jobTitle": member.role,
+        "worksFor": { "@type": "Organization", "name": "Yalla Capital" },
+        "image": `https://www.yallacapital.com.br${member.photo}`,
+        ...(member.linkedin ? { "sameAs": member.linkedin } : {}),
+      })),
+    ],
+  };
+
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       <section className="bg-[#F0F4FB] pt-40 pb-16">
         <div className="max-w-7xl mx-auto px-6 lg:px-12">
           <span className="gold-rule" />

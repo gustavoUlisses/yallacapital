@@ -25,8 +25,41 @@ export default async function ContatoPage({
   const dict = await getDictionary(locale);
   const t = dict.contact;
 
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": `https://www.yallacapital.com.br/${locale}` },
+          { "@type": "ListItem", "position": 2, "name": t.pageLabel, "item": `https://www.yallacapital.com.br/${locale}/contato` },
+        ],
+      },
+      {
+        "@type": "FinancialService",
+        "name": "Yalla Capital",
+        "url": "https://www.yallacapital.com.br",
+        "email": "contato@yallacapital.com.br",
+        "areaServed": "BR",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Rua Henrique Monteiro, 234, 8º Andar",
+          "addressLocality": "São Paulo",
+          "addressRegion": "SP",
+          "postalCode": "01451-001",
+          "addressCountry": "BR",
+        },
+        "sameAs": ["https://www.linkedin.com/company/yallacapital"],
+      },
+    ],
+  };
+
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       {/* Hero */}
       <section className="bg-[#F0F4FB] pt-40 pb-16">
         <div className="max-w-7xl mx-auto px-6 lg:px-12">
