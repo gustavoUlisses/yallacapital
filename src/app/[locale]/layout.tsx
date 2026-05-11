@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { DM_Sans, Playfair_Display, JetBrains_Mono } from "next/font/google";
+import { DM_Sans, Ormorant_Garamond, JetBrains_Mono } from "next/font/google";
 import "../globals.css";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
@@ -13,11 +13,10 @@ const dmSans = DM_Sans({
   weight: ["300", "400", "500", "600"],
 });
 
-const playfair = Playfair_Display({
+const ormorant = Ormorant_Garamond({
   variable: "--font-display",
   subsets: ["latin"],
-  weight: ["400", "500", "700"],
-  style: ["normal", "italic"],
+  weight: ["400"],
 });
 
 const jetbrainsMono = JetBrains_Mono({
@@ -67,7 +66,7 @@ export default async function LocaleLayout({
   return (
     <html
       lang={langMap[locale]}
-      className={`${dmSans.variable} ${playfair.variable} ${jetbrainsMono.variable}`}
+      className={`${dmSans.variable} ${ormorant.variable} ${jetbrainsMono.variable}`}
     >
       <body
         className="min-h-screen flex flex-col antialiased bg-[#F5F2ED] text-[#1A1A1A]"
